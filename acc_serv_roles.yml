@@ -19,7 +19,7 @@ rules:
       - policy
       - rbac.authorization.k8s.io
     resources:
-      - serviceaccount
+      - deployments
     verbs:
       - get
       - list
