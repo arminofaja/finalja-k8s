@@ -12,7 +12,7 @@ metadata:
 rules:          
   - apiGroups:  
       - ''      
-      - apps
+      - apps/v1
       - autoscaling
       - batch
       - extentions
