@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: armino.dep
+    name: arminodep
     namespace: finale
 spec:
 serviceAccountName: servacc
@@ -9,14 +9,14 @@ automountServiceAccountToken:
     replicas: 2
   selector:
     matchLabels:
-      app: army
+      app: arminodep
   template:
     metadata:
       labels:
-        app: army
+        app: arminodep
     spec:
       containers:
-      - name: army
+      - name: arminodep
         image: picard
         ports:
         - containerport: 3000
@@ -26,12 +26,12 @@ automountServiceAccountToken:
 apiVersion: v1
 kind: Service
 metadata:
-  name: armino.svc
+  name: arminosvc
   namespace: finale
 spec:
   type: NodePort
   selector:
-    app: army
+    app: arminodep
   ports:
   - port: 3000
     targetPort: 3000
