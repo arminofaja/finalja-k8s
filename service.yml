@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: the-nginx
+  namespace: the-nginx
+  labels:
+    run: the-nginx
+spec:
+  selector:
+    app: the-nginx	
+  ports:
+    - protocol: TCP
+      port: 80
+      

@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: the-nginx
+   namespace: finale
+spec:
+  selector:
+    matchLabels:
+      run: the-nginx
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: the-nginx
+    spec:
+      containers:
+      - name: the-nginx
+        image: nginx
+        ports:
+         - containerPort: 80
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  namespace: finale
+spec:
+  selector:
+    app: the-nginx	
+  ports:
+    - protocol: TCP
+      port: 80
+      target: 30080    
